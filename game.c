@@ -14,9 +14,7 @@
 
 #define MIN_SIZE 5
 #define MAX_SIZE 15
-#define INTEL_COUNT 3
-#define LIFE_COUNT 2
-#define INITIAL_LIVES 3
+#define INTELS 3
 
 typedef struct{
 	int row;
@@ -31,7 +29,7 @@ typedef struct{
 
 
 int main(){
-	int gridsize,numplayers,mode;
+	int gridsize,num_players,mode;
 	
 	srand(time(NULL));
 
@@ -39,7 +37,27 @@ int main(){
 	printf("	SpyNet - The Codebreaker Protocool	\n");
 	printf("================================================\n");
 
-	gridsize=MIN_SIZE +rand()%(MAX_SIZE-)
+	gridsize = MIN_SIZE + rand() % (MAX_SIZE-MIN_SIZE+1);
+
+	printf("Grid size randomely set to:  %d x %d\n",gridsize,gridsize);
+
+	printf("Select Game Mode:\n");
+	printf(" 1 . Single player\n");
+	printf(" 2 . Two players\n");
+	printf(" 3 . Three players\n");
+	printf("Enter your choice: ");
+	scanf("%d",&mode);
+
+	if(mode<1||mode>3){
+		printf("Invalid Input: \n");
+		printf("exiting...");
+		return 1;
+	}
+	
+	num_players=mode;
+	char symbols[]={PLAYER1,PLAYER2,PLAYER3}
+	for(int i=0;i<num_players;i++)
+		player	
 
 
 
