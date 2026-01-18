@@ -52,8 +52,8 @@ int main(){
 	printf(" 3 . Three players\n");
 	do{
 		printf("Enter your choice: ");
-		scanf("%d",&mode);
-	}while(mode >= 1 && mode <= 3);
+		scanf(" %d",&mode);
+	}while(mode < 1 || mode > 3);
 
 	
 	num_players=mode;
@@ -70,15 +70,15 @@ int main(){
 	}
 
 	if(num_players>1)
-		printf("\nConfigure players in multiplayer\n");
+		printf("\nConfigure players in multiplayer mode\n");
 			for(int i=1;i<num_players;i++){
 				char choice;
 				do{
 				printf("Is player %d a computer? (y/n): ", i+1);
-				scanf("%c",&choice);
+				scanf(" %c",&choice);
 					if(choice == 'y' || choice == 'Y')
 						players[i].computer=1;
-				}while(choice == 'y' || choice == 'Y' || choice == 'n' || choice == 'N');
+				}while(choice != 'y' &&  choice != 'Y' && choice != 'n' && choice != 'N');
 			}
 
 	map = setmap(gridsize);
@@ -87,7 +87,7 @@ int main(){
 	
 
 
-return 1;
+return 0;
 }
 
 
@@ -147,7 +147,7 @@ void place_items(char** map, int size, player *players, int num_players){
                 }
         }
 
-        //placing extract point
+        //placing the extract point
         placed=0;
                 while(!placed){
                         int row = rand() % size;
@@ -158,10 +158,10 @@ void place_items(char** map, int size, player *players, int num_players){
                                 placed = 1;
                         }
                 }
-        }
+        
 
         //placing walls
-	int wall_count = size + rand() % ((size * size)/20);
+	int wall_count = size + rand() % ((size * size)/5);
 	for(int i=0;i<wall_count;i++){
         placed=0;
                 while(!placed){
@@ -186,7 +186,7 @@ void display_map(char** map, int size){
 		printf("+\n");
 
 		for(int k=0;k<size;k++)
-			printf("| %c",map[i][k]);
+			printf("| %c ",map[i][k]);
 			printf("|\n");
 	}
 	
