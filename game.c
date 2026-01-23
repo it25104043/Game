@@ -122,24 +122,25 @@ int main(){
 
 	
 	//player movements
-	int movecount;
+	int move_count;
 	char move;
 	int new_row = players[current_player].row;
 	int new_col = players[current_player].col;
 
 	if(players[current_player].computer){//not finish
 		printf("\n>>>Computer player %d [%c] is thinking.............",current_player +1 ,players[current_player].symbol);
-		computer_move(map,gridsize,&players[current_player]);
-		log_file(map,gridsize,players,num_players,move_count);
+		//computer_move(map,gridsize,&players[current_player]);
+		//log_file(map,gridsize,players,num_players,move_count);
 	}
 	else{
 		printf("\n>>> Player %d [%c] - Lives: %d | Intel: %d/%d\n",current_player+1,players[current_player].symbol,players[current_player].lives,players[current_player].intels,INTEL_COUNT);
 
-		
-	printf("Move (W/A/S/D) or Q to quit: ");
-	scanf("%c",&move);
-	while(getchar() !='\n');
-	move = toupper(move);
+	do{		
+		printf("Move (W/A/S/D) or Q to quit: ");
+		scanf("%c",&move);
+		while(getchar() !='\n');
+		move = toupper(move);
+	}while(!(move == 'W' || move =='A' || move =='S' || move =='D' || move =='Q'));
 
 
 		if(move == 'Q'){
@@ -170,12 +171,37 @@ int main(){
 		map[players[current_player].row][players[current_player].col] = EMPTY;
 		//update player stat
 		update_player_stat(map,gridsize,&players[current_player],new_row,new_col);
+		//Extract point check
+		if(map[new_row][new_col] == EXTRACT)
+			continue;
+
 		//update position
 		players[current_player].row = new_row;
 		players[current_player].col = new_col;
 		map[new_row][new_row] = players[current_player].symbol;
 
-	}
+		move_count++;
+		//log_file();
+		
+		//win conditions
+		if(players[current_player].intels >= INTEL_COUNT && players[current_player].active){
+			display_map(map,gridsize,players,num_players);
+			printf("\n*** MISSION ACCOMPLISHED ***\n");
+			printf("player %d [%c] WINS!\n",current_player+1,players[current_player].symbol);
+			printf("Intel Collected: %d\n",players[current_player].intels);
+			printf("Lives remaning: %d\n",players[current_player].lives);
+			game_running = 0;
+		}
+
+		if(players[current_player].lives <=0){
+			printf("Player %d eliminated (No lives remaining).\n",current_player +1);
+			players[current_player].active = 0;
+			map[players[current_player].row][players[current_player].col] = EMPTY;
+		}
+	} else {
+
+
+		}
 
 
 
@@ -365,3 +391,6 @@ void update_player_stat(char** map, int size, player* player, int new_row, int n
 		}
 	}
 }
+
+
+
