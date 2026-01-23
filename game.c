@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
+#include <ctype.h>
 
 #define PLAYER1 '@'
 #define PLAYER2 '&'
@@ -22,7 +23,7 @@ typedef struct{
 	int row;
 	int col;
 	int lives;
-	int intel;
+	int intels;
 	int active;
 	char symbol;
 	int computer;
@@ -31,10 +32,13 @@ typedef struct{
 char** setmap(int size);
 void place_items(char** map, int size, player *players, int num_players);
 void display_map(char** map, int size);
+int count_active_players(player* players,int num_players);
+void display_player_stats(player* players,int num_players);
 
 int main(){
 	int gridsize, num_players, mode;
 	char** map;
+	char symbols[]={PLAYER1,PLAYER2,PLAYER3};
 	
 	srand(time(NULL));
 
@@ -44,15 +48,16 @@ int main(){
 
 	gridsize = MIN_SIZE + rand() % (MAX_SIZE-MIN_SIZE+1);
 
-	printf("Grid size randomely set to:  %d x %d\n",gridsize,gridsize);
+	printf("\nGrid size randomely set to:  %d x %d\n\n",gridsize,gridsize);
 
 	printf("Select Game Mode:\n");
 	printf(" 1 . Single player\n");
 	printf(" 2 . Two players\n");
 	printf(" 3 . Three players\n");
 	do{
-		printf("Enter your choice: ");
+		printf("\nEnter your choice: ");
 		scanf(" %d",&mode);
+		while(getchar() != '\n');
 	}while(mode < 1 || mode > 3);
 
 	
@@ -60,10 +65,9 @@ int main(){
 	player* players = malloc(num_players*sizeof(*players));
 
 
-	char symbols[]={PLAYER1,PLAYER2,PLAYER3};
 	for(int i=0;i<num_players;i++){
 		players[i].lives = INITIAL_LIVES;
-		players[i].intel = 0;
+		players[i].intels = 0;
 		players[i].active = 1;	
 		players[i].symbol = symbols[i];
 		players[i].computer = 0;
@@ -76,6 +80,7 @@ int main(){
 				do{
 				printf("Is player %d a computer? (y/n): ", i+1);
 				scanf(" %c",&choice);
+				while(getchar() != '\n');
 					if(choice == 'y' || choice == 'Y')
 						players[i].computer=1;
 				}while(choice != 'y' &&  choice != 'Y' && choice != 'n' && choice != 'N');
@@ -83,9 +88,80 @@ int main(){
 
 	map = setmap(gridsize);
 	place_items(map, gridsize, players, num_players);
-	display_map(map, gridsize);
+	
+	//main game loop
+	int current_player = 0;
+	int game_running = 1;
+	
+	while(game_running){
+
+		if(!players[current_player].active){
+			current_player = (current_player +1) % num_players;
+			continue;
+		}
+
+	
+	int active_count = count_active_players(players,num_players);
+	if (active_count == 1 && num_players>1){
+		for(int i=0;i<num_players;i++){
+			if(players[i].active)
+				printf("Player %d [%c] WON!!!", i+1,players[i].symbol);
+		}
+		break;
+	}
+	
+	if(active_count == 0){
+		printf("\nAll players were eliminated.\n");
+		printf("==============GAME OVER==============");
+	break;
+	}
+
+	display_map(map,gridsize);
+	display_player_stats(players,num_players);
+
+	
+	//player movements
+	int movecount;
+	char move;
+	int new_row = players[current_player].row;
+	int new_col = players[current_player].col;
+
+	if(players[current_player].computer){
+		printf("\n>>>Computer player %d [%c] is thinking.............",current_player +1 ,players[current_player].symbol);
+		computer_move(map,gridsize,&players[current_player]);
+		log_file(map,gridsize,players,num_players,move_count);
+	}
+	else{
+		printf("\n>>> Player %d [%c] - Lives: %d | Intel: %d/%d\n",current_player+1,players[current_player].symbol,players[current_player].lives,players[current_player].intels,INTEL_COUNT);
+
+		
+	printf("Move (W/A/S/D) or Q to quit: ");
+	scanf("%c",&move);
+	while(getchar() !='\n');
+	move = toupper(move);
+
+
+		if(move == 'Q'){
+			printf("Player %d quit the game\n",current_player+1);
+			players[current_player].active=0;
+			map[players[current_player].row][players[current_player].col] = EMPTY;
+			current_player = (current_player + 1) % num_players;
+		}
+
+
+
+	}
+
+
+
 	
 
+
+
+
+
+
+	}
 
 return 0;
 }
@@ -196,3 +272,33 @@ void display_map(char** map, int size){
 	 printf("+\n");
 
 }	
+
+
+int count_active_players(player* players,int num_players){
+	int count = 0;
+	for(int i=0;i<num_players;i++)
+		if(players[i].active)
+			count++;
+
+
+	return count;
+}
+
+
+void display_player_stats(player* players,int num_players){
+	printf("\n----------------Player Status----------------\n");
+	for(int i=0;i<num_players;i++){
+		if(players[i].active)
+			printf("Player %d [%c]: Lives = %d | Intels = %d/%d |%s\n",i+1,players[i].symbol,players[i].lives,players[i].intels,INTEL_COUNT,players[i].computer?"Computer":"Human");
+
+		else
+			printf("Player %d [%c]: LOST",i+1,players[i].symbol);
+		
+	}
+	printf("---------------------------------------------\n");
+
+}
+
+void computer_move(map,gridsize,&players[current_player]);
+void log_file(char** map,int size,char** players,int num_players,int move_count);
+
