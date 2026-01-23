@@ -73,7 +73,7 @@ int main(){
 		players[i].computer = 0;
 	}
 
-	if(num_players>1)
+	if(num_players>1){
 		printf("\nConfigure players in multiplayer mode\n");
 			for(int i=1;i<num_players;i++){
 				char choice;
@@ -85,6 +85,7 @@ int main(){
 						players[i].computer=1;
 				}while(choice != 'y' &&  choice != 'Y' && choice != 'n' && choice != 'N');
 			}
+	}
 
 	map = setmap(gridsize);
 	place_items(map, gridsize, players, num_players);
@@ -126,7 +127,7 @@ int main(){
 	int new_row = players[current_player].row;
 	int new_col = players[current_player].col;
 
-	if(players[current_player].computer){
+	if(players[current_player].computer){//not finish
 		printf("\n>>>Computer player %d [%c] is thinking.............",current_player +1 ,players[current_player].symbol);
 		computer_move(map,gridsize,&players[current_player]);
 		log_file(map,gridsize,players,num_players,move_count);
@@ -146,7 +147,38 @@ int main(){
 			players[current_player].active=0;
 			map[players[current_player].row][players[current_player].col] = EMPTY;
 			current_player = (current_player + 1) % num_players;
+			continue;
 		}
+
+		switch(move){
+			case 'W':
+				new_row--;
+				break;
+                        case 'S':
+                                new_row++;
+                                break;
+                        case 'A':
+                                new_col--;
+                                break;
+                        case 'D':
+                                new_col++;
+                                break;
+		}
+		
+	if(validate_move(map,gridsize,new_row,new_col)){
+		//clear old position
+		map[players[current_player].row][players[current_player].col] = EMPTY;
+		//update player stat
+		update_player_stat(map,gridsize,&players[current_player],new_row,new_col);
+		//update position
+		players[current_player].row = new_row;
+		players[current_player].col = new_col;
+		map[new_row][new_row] = players[current_player].symbol;
+
+	}
+
+
+
 
 
 
@@ -302,3 +334,34 @@ void display_player_stats(player* players,int num_players){
 void computer_move(map,gridsize,&players[current_player]);
 void log_file(char** map,int size,char** players,int num_players,int move_count);
 
+int validate_move(char** map, int size, int new_row, int new_col){
+	//check boundaries
+	if(new_row<0 || new_row >=size || new_col<0 || new_row >=size)
+		return 0;
+
+	//check walls
+	if(map[new_row][new_col] == WALL)
+		return 0;
+
+	//check for other players
+	if(map[new_row][new_col] == PLAYER1 || map[new_row][new_col] == PLAYER2 || map[new_row][new_col] == PLAYER3)
+		return 0;
+	//else
+	return 1;
+}
+void update_player_stat(char** map, int size, player* player, int new_row, int new_col){
+	char cell = map[new_row][new_col];
+
+	if(cell == INTEL){
+		player->intels++;
+		printf("INTEL collected! Total: %d/%d\n",player->intels,INTEL_COUNT);
+	} else if(cell == LIFE){
+		player->lives++;
+                printf("LIFE gained! Total Lives: %d\n",player->lives)
+	} else if(cell == EXTRACT){
+		if(player->intels < INTEL_COUNT){
+			printf("Extraction failed! Need all %d intel. Mission aborted.\n ", INTEL_COUNT);
+			player->active = 0;
+		}
+	}
+}
