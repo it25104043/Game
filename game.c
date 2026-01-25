@@ -456,8 +456,8 @@ char move_computer(char **map, int size, player *players, int current_player) {
 	char directions[] = {'W', 'A', 'S', 'D'};
 	int smart_chance = rand() % 100;
 
-	//75% chance to try to find a valid move, 25% random move
-	if (smart_chance < 75) {
+	//85% chance to try to find a valid move, 15% random move
+	if (smart_chance < 85) {
 		int start_direct = rand() % 4;
 	
 		for (int i = 0; i < 4; i++) {
