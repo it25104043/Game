@@ -56,6 +56,7 @@ int main(){
 
 	display_instructions();
 
+	//Input grid size
 	do {
 		printf("Enter grid size (%d-%d) or 0 for random: ", MIN_SIZE, MAX_SIZE);
 		scanf(" %d", &gridsize); 
@@ -86,7 +87,7 @@ int main(){
 	num_players = mode;
 	player *players = malloc(num_players * sizeof(*players));
 
-
+	//Initialize players
 	for(int i=0;i<num_players;i++){
 		players[i].lives = INITIAL_LIVES;
 		players[i].intels = 0;
@@ -109,11 +110,11 @@ int main(){
 		}
 	}
 
-	//game initialization
+	//Game initialization
 	map = initialize_map(gridsize);
 	place_items(map, gridsize, players, num_players);
 	
-	//main game loop
+	//Main game loop
 	int current_player = 0;
 	int game_running = 1;
 	int move_count = 0;	
@@ -124,6 +125,9 @@ int main(){
 		int active_count = count_active_players(players, num_players);
 
 		if (active_count == 1 && num_players > 1) {
+			display_map(map, gridsize);
+                	display_player_stats(players, num_players);
+			
 			printf("\n*** Only one player remains! ***\n");
 				for (int i = 0; i < num_players; i++) {
 					if (players[i].active)
@@ -133,12 +137,15 @@ int main(){
 		}
 
 		if (active_count == 0) {
-			printf("\nAll players were eliminated.\n");
-			printf("\n==========GAME OVER==========\n");
+               		display_map(map, gridsize);
+                	display_player_stats(players, num_players);
+
+			printf("\n	No players remain\n");
+			printf("\n===========GAME OVER===========\n");
 			break;
 		}
 
-		//skip turn if player isnt active
+		//Skip turn if player isnt active
 		if (!players[current_player].active) {
 			current_player = (current_player + 1) % num_players;
 			continue;
@@ -147,13 +154,16 @@ int main(){
 		display_map(map, gridsize);
 		display_player_stats(players, num_players);
 
+		//Input movements
 		char move;
 		int new_row = players[current_player].row;
 		int new_col = players[current_player].col;
 
+		//Input movements from computer
 		if (players[current_player].computer) {
 			printf("\n>>> Computer Player %d [%c] is thinking...\n", current_player + 1, players[current_player].symbol);
 			move = move_computer(map, gridsize, players, current_player);
+		//Input movements from user
 		} else {
 			printf("\n>>> Player %d [%c] - Lives: %d | Intel: %d/%d\n", current_player + 1, players[current_player].symbol, players[current_player].lives, players[current_player].intels, INTEL_COUNT);
 			move = accept_input();
@@ -182,12 +192,12 @@ int main(){
                                 break;
 		}
 		
-		
+		//If move is a valid move 		
 		if (validate_move(map, gridsize, new_row, new_col)) {
 			
-			//update map
+			//Update map
 			map[players[current_player].row][players[current_player].col] = EMPTY;
-			//update player state
+			//Update player state
 			update_player_state(map, gridsize, &players[current_player], new_row, new_col, num_players);
 
 			players[current_player].row = new_row;
@@ -199,6 +209,7 @@ int main(){
 			move_count++;
 			log_file(map, gridsize, players, num_players, move_count, current_player);
 
+			//Checks if the  player is a winner
 			if (check_win_conditions(players, map, current_player, num_players)) {
 				display_map(map, gridsize);
 				printf("\n*** MISSION ACCOMPLISHED ***\n");
@@ -207,12 +218,13 @@ int main(){
 				printf("Lives remaning: %d\n", players[current_player].lives);
 				game_running = 0;
 }
-			} else {
+		//If move isn't valid
+		} else {
 
-				players[current_player].lives--;
-				printf("\nINVALID MOVE! Life penalty applied. Lives remaining: %d\n", players[current_player].lives);
+			players[current_player].lives--;
+			printf("\nINVALID MOVE! Life penalty applied. Lives remaining: %d\n", players[current_player].lives);
 
-				if (players[current_player].lives <= 0) {
+				if (players[current_player].lives == 0) {
 					printf("Player %d eliminated (no lives remaining).\n", current_player + 1);
 					players[current_player].active = 0;
 					map[players[current_player].row][players[current_player].col] = EMPTY;
@@ -221,7 +233,7 @@ int main(){
 		current_player = (current_player + 1) % num_players;
 	}
 
-
+	//Freeing allocated memories
 	free_map(map, gridsize);
 	free(players);
 
@@ -239,7 +251,7 @@ char **initialize_map(int size) {
 	return map;
 }
 
-//free memory-map
+//Free memory map
 void free_map(char **map, int size) {
 	for (int i = 0; i < size; i++) {
 		free(map[i]);
@@ -252,7 +264,7 @@ void place_items(char **map, int size, player *players, int num_players) {
 	int placed;
 	int row, col;
 
-	// place players
+	//Place players
 	for (int i = 0; i < num_players; i++) {
 		placed = 0;
 		while (!placed) {
@@ -268,7 +280,7 @@ void place_items(char **map, int size, player *players, int num_players) {
 	}
 
 
-	//place Intels
+	//Place Intels
 	for (int i = 0; i < INTEL_COUNT; i++) {
 		placed = 0;
 		while (!placed) {
@@ -282,7 +294,7 @@ void place_items(char **map, int size, player *players, int num_players) {
 	}
 
 
-	//place lives
+	//Place lives
 	for (int i = 0; i < LIFE_COUNT; i++) {
 		placed = 0;
 		while (!placed) {
@@ -296,7 +308,7 @@ void place_items(char **map, int size, player *players, int num_players) {
 	}
 
 
-	//place extract point
+	//Place extract point
 	placed = 0;
 	while (!placed) {
 		row = rand() % size;
@@ -308,8 +320,8 @@ void place_items(char **map, int size, player *players, int num_players) {
 	}
 
 
-	//place walls
-	int wall_count = (size * size) * 0.2; //20% of grid size
+	//Place walls
+	int wall_count = (size * size) * 0.2; //20% of the grid 
 	for (int i = 0; i < wall_count; i++) {
 		placed = 0;
 		while (!placed) {
@@ -364,13 +376,13 @@ void display_player_stats(player *players, int num_players) {
 }
 
 int validate_move(char **map, int size, int new_row, int new_col) {
-	if (new_row < 0 || new_row >= size || new_col < 0 || new_col >= size)
+	if (new_row < 0 || new_row >= size || new_col < 0 || new_col >= size) //Checks out of bounds
 		return 0;
 
-	if (map[new_row][new_col] == WALL)
+	if (map[new_row][new_col] == WALL) //Checks walls
 		return 0;
 
-	if (map[new_row][new_col] == PLAYER1 || map[new_row][new_col] == PLAYER2 || map[new_row][new_col] == PLAYER3)
+	if (map[new_row][new_col] == PLAYER1 || map[new_row][new_col] == PLAYER2 || map[new_row][new_col] == PLAYER3) //Checks collision with another player
 		return 0;
 
 	return 1;
@@ -390,7 +402,7 @@ void update_player_state(char **map, int size, player *player, int new_row, int 
 		printf("LIFE gained! Total Lives: %d\n", player->lives);
 
 	} else if (cell == EXTRACT) {
-		int win_threshold = (INTEL_COUNT + num_players - 1) / num_players;
+		int win_threshold = (INTEL_COUNT + num_players - 1) / num_players; //Minimum intel count needed to win
 
 		if ((remain_intel != 0) || (remain_intel == 0 && player->intels < win_threshold)) {
 			printf("\n[!] Extraction failed! You don't have enough intel. Mission aborted.\n");
@@ -402,8 +414,8 @@ void update_player_state(char **map, int size, player *player, int new_row, int 
 
 int check_win_conditions(player *players, char **map, int current_player, int num_players) {
 	if (map[players[current_player].row][players[current_player].col] == EXTRACT && remain_intel == 0 && players[current_player].active) {
-		int primary_target = (num_players == 1) ? INTEL_COUNT : (INTEL_COUNT / num_players + 1);
-		int tie_target = INTEL_COUNT / num_players;
+		int primary_target = (num_players == 1) ? INTEL_COUNT : (INTEL_COUNT / num_players + 1); //Minimum intel count to win
+		int tie_target = INTEL_COUNT / num_players; 
 
 		if (players[current_player].intels >= primary_target)
 			return 1;
