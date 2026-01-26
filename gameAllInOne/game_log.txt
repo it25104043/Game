@@ -1,0 +1,555 @@
+
+time_stamp: Sun Jan 25 22:30:13 2026
+=== MOVE 0 by player 1 ===
+. # . # . . @ 
+. . . # I . . 
+. . . . . & . 
+# . . . # # # 
+. $ . . . . L 
+I I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=0, Active=1, Pos=(0,6)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(2,5)
+Player 3 ($): Lives=3, Intel=0, Active=1, Pos=(4,1)
+
+time_stamp: Sun Jan 25 22:30:16 2026
+=== MOVE 1 by player 1 ===
+. # . # . . . 
+. . . # I . @ 
+. . . . . & . 
+# . . . # # # 
+. $ . . . . L 
+I I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=0, Active=1, Pos=(1,6)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(2,5)
+Player 3 ($): Lives=3, Intel=0, Active=1, Pos=(4,1)
+
+time_stamp: Sun Jan 25 22:30:16 2026
+=== MOVE 2 by player 2 ===
+. # . # . . . 
+. . . # I & @ 
+. . . . . . . 
+# . . . # # # 
+. $ . . . . L 
+I I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=0, Active=1, Pos=(1,6)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(1,5)
+Player 3 ($): Lives=3, Intel=0, Active=1, Pos=(4,1)
+
+time_stamp: Sun Jan 25 22:30:16 2026
+=== MOVE 3 by player 3 ===
+. # . # . . . 
+. . . # I & @ 
+. . . . . . . 
+# $ . . # # # 
+. . . . . . L 
+I I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=0, Active=1, Pos=(1,6)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(1,5)
+Player 3 ($): Lives=3, Intel=0, Active=1, Pos=(3,1)
+
+time_stamp: Sun Jan 25 22:30:20 2026
+=== MOVE 4 by player 1 ===
+. # . # . . . 
+. . . # I & . 
+. . . . . . @ 
+# $ . . # # # 
+. . . . . . L 
+I I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=0, Active=1, Pos=(2,6)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(1,5)
+Player 3 ($): Lives=3, Intel=0, Active=1, Pos=(3,1)
+
+time_stamp: Sun Jan 25 22:30:20 2026
+=== MOVE 5 by player 2 ===
+. # . # . . . 
+. . . # I . & 
+. . . . . . @ 
+# $ . . # # # 
+. . . . . . L 
+I I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=0, Active=1, Pos=(2,6)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(1,6)
+Player 3 ($): Lives=3, Intel=0, Active=1, Pos=(3,1)
+
+time_stamp: Sun Jan 25 22:30:20 2026
+=== MOVE 6 by player 3 ===
+. # . # . . . 
+. . . # I . & 
+. . . . . . @ 
+# . . . # # # 
+. $ . . . . L 
+I I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=0, Active=1, Pos=(2,6)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(1,6)
+Player 3 ($): Lives=3, Intel=0, Active=1, Pos=(4,1)
+
+time_stamp: Sun Jan 25 22:30:21 2026
+=== MOVE 7 by player 1 ===
+. # . # . . . 
+. . . # I . & 
+. . . . . @ . 
+# . . . # # # 
+. $ . . . . L 
+I I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=0, Active=1, Pos=(2,5)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(1,6)
+Player 3 ($): Lives=3, Intel=0, Active=1, Pos=(4,1)
+
+time_stamp: Sun Jan 25 22:30:21 2026
+=== MOVE 8 by player 2 ===
+. # . # . . . 
+. . . # I . . 
+. . . . . @ & 
+# . . . # # # 
+. $ . . . . L 
+I I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=0, Active=1, Pos=(2,5)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(2,6)
+Player 3 ($): Lives=3, Intel=0, Active=1, Pos=(4,1)
+
+time_stamp: Sun Jan 25 22:30:21 2026
+=== MOVE 9 by player 3 ===
+. # . # . . . 
+. . . # I . . 
+. . . . . @ & 
+# . . . # # # 
+$ . . . . . L 
+I I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=0, Active=1, Pos=(2,5)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(2,6)
+Player 3 ($): Lives=3, Intel=0, Active=1, Pos=(4,0)
+
+time_stamp: Sun Jan 25 22:30:21 2026
+=== MOVE 10 by player 1 ===
+. # . # . . . 
+. . . # I . . 
+. . . . @ . & 
+# . . . # # # 
+$ . . . . . L 
+I I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=0, Active=1, Pos=(2,4)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(2,6)
+Player 3 ($): Lives=3, Intel=0, Active=1, Pos=(4,0)
+
+time_stamp: Sun Jan 25 22:30:21 2026
+=== MOVE 11 by player 2 ===
+. # . # . . . 
+. . . # I . & 
+. . . . @ . . 
+# . . . # # # 
+$ . . . . . L 
+I I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=0, Active=1, Pos=(2,4)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(1,6)
+Player 3 ($): Lives=3, Intel=0, Active=1, Pos=(4,0)
+
+time_stamp: Sun Jan 25 22:30:21 2026
+=== MOVE 12 by player 3 ===
+. # . # . . . 
+. . . # I . & 
+. . . . @ . . 
+# . . . # # # 
+. . . . . . L 
+$ I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=0, Active=1, Pos=(2,4)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(1,6)
+Player 3 ($): Lives=3, Intel=1, Active=1, Pos=(5,0)
+
+time_stamp: Sun Jan 25 22:30:22 2026
+=== MOVE 13 by player 1 ===
+. # . # . . . 
+. . . # @ . & 
+. . . . . . . 
+# . . . # # # 
+. . . . . . L 
+$ I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(1,4)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(1,6)
+Player 3 ($): Lives=3, Intel=1, Active=1, Pos=(5,0)
+
+time_stamp: Sun Jan 25 22:30:22 2026
+=== MOVE 14 by player 2 ===
+. # . # . . . 
+. . . # @ . . 
+. . . . . . & 
+# . . . # # # 
+. . . . . . L 
+$ I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(1,4)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(2,6)
+Player 3 ($): Lives=3, Intel=1, Active=1, Pos=(5,0)
+
+time_stamp: Sun Jan 25 22:30:22 2026
+=== MOVE 15 by player 3 ===
+. # . # . . . 
+. . . # @ . . 
+. . . . . . & 
+# . . . # # # 
+$ . . . . . L 
+. I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(1,4)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(2,6)
+Player 3 ($): Lives=3, Intel=1, Active=1, Pos=(4,0)
+
+time_stamp: Sun Jan 25 22:30:23 2026
+=== MOVE 16 by player 1 ===
+. # . # . . . 
+. . . # . . . 
+. . . . @ . & 
+# . . . # # # 
+$ . . . . . L 
+. I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(2,4)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(2,6)
+Player 3 ($): Lives=3, Intel=1, Active=1, Pos=(4,0)
+
+time_stamp: Sun Jan 25 22:30:23 2026
+=== MOVE 17 by player 2 ===
+. # . # . . . 
+. . . # . . & 
+. . . . @ . . 
+# . . . # # # 
+$ . . . . . L 
+. I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(2,4)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(1,6)
+Player 3 ($): Lives=3, Intel=1, Active=1, Pos=(4,0)
+
+time_stamp: Sun Jan 25 22:30:23 2026
+=== MOVE 18 by player 3 ===
+. # . # . . . 
+. . . # . . & 
+. . . . @ . . 
+# . . . # # # 
+. . . . . . L 
+$ I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(2,4)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(1,6)
+Player 3 ($): Lives=3, Intel=1, Active=1, Pos=(5,0)
+
+time_stamp: Sun Jan 25 22:30:24 2026
+=== MOVE 19 by player 1 ===
+. # . # . . . 
+. . . # . . & 
+. . . @ . . . 
+# . . . # # # 
+. . . . . . L 
+$ I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(2,3)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(1,6)
+Player 3 ($): Lives=3, Intel=1, Active=1, Pos=(5,0)
+
+time_stamp: Sun Jan 25 22:30:24 2026
+=== MOVE 20 by player 2 ===
+. # . # . . & 
+. . . # . . . 
+. . . @ . . . 
+# . . . # # # 
+. . . . . . L 
+$ I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(2,3)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(0,6)
+Player 3 ($): Lives=3, Intel=1, Active=1, Pos=(5,0)
+
+time_stamp: Sun Jan 25 22:30:24 2026
+=== MOVE 21 by player 3 ===
+. # . # . . & 
+. . . # . . . 
+. . . @ . . . 
+# . . . # # # 
+$ . . . . . L 
+. I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(2,3)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(0,6)
+Player 3 ($): Lives=3, Intel=1, Active=1, Pos=(4,0)
+
+time_stamp: Sun Jan 25 22:30:25 2026
+=== MOVE 22 by player 1 ===
+. # . # . . & 
+. . . # . . . 
+. . @ . . . . 
+# . . . # # # 
+$ . . . . . L 
+. I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(2,2)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(0,6)
+Player 3 ($): Lives=3, Intel=1, Active=1, Pos=(4,0)
+
+time_stamp: Sun Jan 25 22:30:25 2026
+=== MOVE 23 by player 2 ===
+. # . # . & . 
+. . . # . . . 
+. . @ . . . . 
+# . . . # # # 
+$ . . . . . L 
+. I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(2,2)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(0,5)
+Player 3 ($): Lives=3, Intel=1, Active=1, Pos=(4,0)
+
+time_stamp: Sun Jan 25 22:30:25 2026
+=== MOVE 24 by player 3 ===
+. # . # . & . 
+. . . # . . . 
+. . @ . . . . 
+# . . . # # # 
+. . . . . . L 
+$ I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(2,2)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(0,5)
+Player 3 ($): Lives=3, Intel=1, Active=1, Pos=(5,0)
+
+time_stamp: Sun Jan 25 22:30:26 2026
+=== MOVE 25 by player 1 ===
+. # . # . & . 
+. . . # . . . 
+. @ . . . . . 
+# . . . # # # 
+. . . . . . L 
+$ I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(2,1)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(0,5)
+Player 3 ($): Lives=3, Intel=1, Active=1, Pos=(5,0)
+
+time_stamp: Sun Jan 25 22:30:26 2026
+=== MOVE 26 by player 2 ===
+. # . # & . . 
+. . . # . . . 
+. @ . . . . . 
+# . . . # # # 
+. . . . . . L 
+$ I . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(2,1)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(0,4)
+Player 3 ($): Lives=3, Intel=1, Active=1, Pos=(5,0)
+
+time_stamp: Sun Jan 25 22:30:26 2026
+=== MOVE 27 by player 3 ===
+. # . # & . . 
+. . . # . . . 
+. @ . . . . . 
+# . . . # # # 
+. . . . . . L 
+. $ . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(2,1)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(0,4)
+Player 3 ($): Lives=3, Intel=2, Active=1, Pos=(5,1)
+
+time_stamp: Sun Jan 25 22:30:26 2026
+=== MOVE 28 by player 1 ===
+. # . # & . . 
+. . . # . . . 
+. . . . . . . 
+# @ . . # # # 
+. . . . . . L 
+. $ . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(3,1)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(0,4)
+Player 3 ($): Lives=3, Intel=2, Active=1, Pos=(5,1)
+
+time_stamp: Sun Jan 25 22:30:26 2026
+=== MOVE 29 by player 2 ===
+. # . # . . . 
+. . . # & . . 
+. . . . . . . 
+# @ . . # # # 
+. . . . . . L 
+. $ . . L . . 
+# . L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(3,1)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(1,4)
+Player 3 ($): Lives=3, Intel=2, Active=1, Pos=(5,1)
+
+time_stamp: Sun Jan 25 22:30:26 2026
+=== MOVE 30 by player 3 ===
+. # . # . . . 
+. . . # & . . 
+. . . . . . . 
+# @ . . # # # 
+. . . . . . L 
+. . . . L . . 
+# $ L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(3,1)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(1,4)
+Player 3 ($): Lives=3, Intel=2, Active=1, Pos=(6,1)
+
+time_stamp: Sun Jan 25 22:30:32 2026
+=== MOVE 31 by player 1 ===
+. # . # . . . 
+. . . # & . . 
+. . . . . . . 
+# . . . # # # 
+. @ . . . . L 
+. . . . L . . 
+# $ L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(4,1)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(1,4)
+Player 3 ($): Lives=3, Intel=2, Active=1, Pos=(6,1)
+
+time_stamp: Sun Jan 25 22:30:32 2026
+=== MOVE 32 by player 2 ===
+. # . # . . . 
+. . . # . . . 
+. . . . & . . 
+# . . . # # # 
+. @ . . . . L 
+. . . . L . . 
+# $ L X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(4,1)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(2,4)
+Player 3 ($): Lives=3, Intel=2, Active=1, Pos=(6,1)
+
+time_stamp: Sun Jan 25 22:30:32 2026
+=== MOVE 33 by player 3 ===
+. # . # . . . 
+. . . # . . . 
+. . . . & . . 
+# . . . # # # 
+. @ . . . . L 
+. . . . L . . 
+# . $ X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(4,1)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(2,4)
+Player 3 ($): Lives=4, Intel=2, Active=1, Pos=(6,2)
+
+time_stamp: Sun Jan 25 22:30:33 2026
+=== MOVE 34 by player 1 ===
+. # . # . . . 
+. . . # . . . 
+. . . . & . . 
+# . . . # # # 
+. . @ . . . L 
+. . . . L . . 
+# . $ X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(4,2)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(2,4)
+Player 3 ($): Lives=4, Intel=2, Active=1, Pos=(6,2)
+
+time_stamp: Sun Jan 25 22:30:33 2026
+=== MOVE 35 by player 2 ===
+. # . # . . . 
+. . . # . . . 
+. . . & . . . 
+# . . . # # # 
+. . @ . . . L 
+. . . . L . . 
+# . $ X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(4,2)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(2,3)
+Player 3 ($): Lives=4, Intel=2, Active=1, Pos=(6,2)
+
+time_stamp: Sun Jan 25 22:30:33 2026
+=== MOVE 36 by player 3 ===
+. # . # . . . 
+. . . # . . . 
+. . . & . . . 
+# . . . # # # 
+. . @ . . . L 
+. . . . L . . 
+# . . X . # . 
+
+Player Status:
+Player 1 (@): Lives=3, Intel=1, Active=1, Pos=(4,2)
+Player 2 (&): Lives=3, Intel=0, Active=1, Pos=(2,3)
+Player 3 ($): Lives=4, Intel=2, Active=1, Pos=(6,3)
